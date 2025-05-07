@@ -1,0 +1,40 @@
+Issue  1: table column update for users and products
+--------
+
+    ALTER TABLE `users` CHANGE `id` `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+    ALTER TABLE `products` CHANGE `id` `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+    ALTER TABLE `productcolors` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+Issue 2:  Call to undefined method App\Models\Product::note() ; Admin\ProductController -> 93 no line
+--------
+
+Issue 3: Product details page image issue solve; condition set like if else
+--------
+
+Issue 4:  Order save issue
+--------
+General error: 1364 Field 'id' doesn't have a default value; customers, orders, shippings, payments, order_details
+--------
+
+    ALTER TABLE `customers` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+    ALTER TABLE `orders` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+    ALTER TABLE `shippings` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+    ALTER TABLE `payments` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+    ALTER TABLE `order_details` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+
+Task 5: Bkash cancelation catch and redirect to cancel page and make order to cancel
+
+Task 6 : order table status name kunu column nai tobe status onek jaigai use kora hoyeche   $order->status = 'accepted'; eta change kore order_status use kora hoyeche
+
+    ALTER TABLE `order_statuses` CHANGE `id` `id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
+    UPDATE `order_statuses` SET `name` = 'Cancel' WHERE `order_statuses`.`id` = 9;
+    UPDATE `order_statuses` SET `slug` = 'cancel' WHERE `order_statuses`.`id` = 9;
+
+
+Task 7:
+
+    ALTER TABLE `payment_gateways` CHANGE `id` `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT, add PRIMARY KEY (`id`);
