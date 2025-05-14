@@ -18,3 +18,4 @@ yarn-error.log
 /.vscode
 *.zip
 /public/uploads
+/storage/framework/views
